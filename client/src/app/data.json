@@ -1,0 +1,700 @@
+{
+  "menu": {
+    "Appetizers": [
+      {
+        "id": 1,
+        "name": "Char Siu",
+        "price": 16.95
+      },
+      {
+        "id": 2,
+        "name": "Crispy Won Ton/Gau Gee",
+        "price": 8.95
+      },
+      {
+        "id": 3,
+        "name": "Pot Stickers",
+        "price": 8.95
+      },
+      {
+        "id": 4,
+        "name": "Eggroll",
+        "price": 6.95
+      },
+      {
+        "id": 5,
+        "name": "Shrimp Canton",
+        "price": 14.95
+      },
+      {
+        "id": 6,
+        "name": "Chicken Salad",
+        "price": 14.95
+      }
+    ],
+    "Soup": [
+      {
+        "id": 7,
+        "name": "Scallop Soup",
+        "price": 15.95
+      },
+      {
+        "id": 8,
+        "name": "Abalone w/ Black Mushroom Soup",
+        "price": 14.95
+      },
+      {
+        "id": 9,
+        "name": "Hot & Sour Soup",
+        "price": 12.95
+      },
+      {
+        "id": 10,
+        "name": "Seafood Tofu Soup",
+        "price": 17.95
+      },
+      {
+        "id": 11,
+        "name": "Seaweed Tofu Soup",
+        "price": 12.95
+      },
+      {
+        "id": 12,
+        "name": "Pork Mustard Cabbage Soup",
+        "price": 12.95
+      },
+      {
+        "id": 13,
+        "name": "Egg Flower Soup",
+        "price": 12.95
+      },
+      {
+        "id": 14,
+        "name": "Diced Chicken w/ Corn Soup",
+        "price": 12.95
+      },
+      {
+        "id": 15,
+        "name": "Oxtail Soup",
+        "price": 22.95
+      },
+      {
+        "id": 16,
+        "name": "Sizzling Rice Soup",
+        "price": 14.95
+      },
+      {
+        "id": 17,
+        "name": "West Lake Soup",
+        "price": 14.95
+      }
+    ],
+    "Fowl": [
+      {
+        "id": 18,
+        "name": "Peking Duck",
+        "price": 49.95
+      },
+      {
+        "id": 19,
+        "name": "Roast Duck",
+        "price": 20.95
+      },
+      {
+        "id": 20,
+        "name": "Crispy Chicken",
+        "price": 14.95
+      },
+      {
+        "id": 21,
+        "name": "Cold Ginger Chicken",
+        "price": 14.95
+      },
+      {
+        "id": 22,
+        "name": "Crispy Chicken w/ Oyster Sauce",
+        "price": 16.95
+      },
+      {
+        "id": 23,
+        "name": "Kung Po Chicken (Hot)",
+        "price": 14.95
+      },
+      {
+        "id": 24,
+        "name": "Chicken w/ Cashew Nuts",
+        "price": 14.95
+      },
+      {
+        "id": 25,
+        "name": "Chicken w/ Mixed Vegetables",
+        "price": 14.95
+      },
+      {
+        "id": 26,
+        "name": "Chicken w/ Black Mushroom",
+        "price": 14.95
+      },
+      {
+        "id": 27,
+        "name": "Chicken w/ Baby Corn",
+        "price": 14.95
+      },
+      {
+        "id": 28,
+        "name": "Chicken w/ Black Bean Sauce",
+        "price": 14.95
+      },
+      {
+        "id": 29,
+        "name": "Chicken w/ Broccoli",
+        "price": 14.95
+      },
+      {
+        "id": 30,
+        "name": "(Lemon/Sweet & Sour) Chicken",
+        "price": 14.95
+      },
+      {
+        "id": 31,
+        "name": "Chicken Lettuce Cups",
+        "price": 18.95
+      },
+      {
+        "id": 32,
+        "name": "Salt & Pepper Chicken",
+        "price": 14.95
+      },
+      {
+        "id": 33,
+        "name": "Orange Chicken",
+        "price": 14.95
+      }
+    ],
+    "Beef/Pork/Lamb": [
+      {
+        "id": 34,
+        "name": "Beef w/ Broccoli",
+        "price": 14.95
+      },
+      {
+        "id": 35,
+        "name": "Pork w/ Mixed Vegetables",
+        "price": 14.95
+      },
+      {
+        "id": 36,
+        "name": "(Beef/Pork) w/ Tomato",
+        "price": 15.95
+      },
+      {
+        "id": 37,
+        "name": "Mongolian Beef",
+        "price": 18.95
+      },
+      {
+        "id": 38,
+        "name": "Mu Shu Pork",
+        "price": 15.95
+      },
+      {
+        "id": 39,
+        "name": "Mapo Tofu w/ Pork (HOT)",
+        "price": 14.95
+      },
+      {
+        "id": 40,
+        "name": "Sweet & Sour Pork",
+        "price": 15.95
+      },
+      {
+        "id": 41,
+        "name": "Capital Pork Ribs",
+        "price": 15.95
+      },
+      {
+        "id": 42,
+        "name": "Salt & Pepper Pork Ribs",
+        "price": 15.95
+      },
+      {
+        "id": 43,
+        "name": "Sweet & Sour Pork Ribs",
+        "price": 15.95
+      },
+      {
+        "id": 44,
+        "name": "Roast Pork",
+        "price": 16.95
+      },
+      {
+        "id": 45,
+        "name": "(Beef/Pork) w/ String Bean",
+        "price": 16.95
+      },
+      {
+        "id": 46,
+        "name": "Szechuan Eggplant w/ Pork",
+        "price": 14.95
+      },
+      {
+        "id": 47,
+        "name": "Steamed Pork Hash",
+        "price": 14.95
+      },
+      {
+        "id": 48,
+        "name": "(Beef/Pork) w/ Sweet & Sour Cabbage",
+        "price": 17.95
+      },
+      {
+        "id": 49,
+        "name": "House Special Kau Yuk",
+        "price": 17.95
+      },
+      {
+        "id": 50,
+        "name": "Mongolian Lamb",
+        "price": 26.95
+      }
+    ],
+    "Vegetables": [
+      {
+        "id": 51,
+        "name": "Spicy Tofu",
+        "price": 12.95
+      },
+      {
+        "id": 52,
+        "name": "Braised Black Mushroom w/ Vegetable",
+        "price": 14.95
+      },
+      {
+        "id": 53,
+        "name": "Fried Tofu Vegetable w/ Black Bean Sauce",
+        "price": 14.95
+      },
+      {
+        "id": 54,
+        "name": "Sauteed Mixed Vegetables",
+        "price": 12.95
+      },
+      {
+        "id": 55,
+        "name": "Choi Sum w/ (Oyster/Garlic) Sauce",
+        "price": 12.95
+      },
+      {
+        "id": 56,
+        "name": "Baby Pak Choi w/ (Oyster/Garlic) Sauce",
+        "price": 12.95
+      },
+      {
+        "id": 57,
+        "name": "Broccoli w/ Cashew Nuts",
+        "price": 14.95
+      },
+      {
+        "id": 58,
+        "name": "Ung Choi w/ (Garlic/Hamha) Sauce",
+        "price": 12.95
+      },
+      {
+        "id": 59,
+        "name": "Fried Tofu Mushroom w/ Oyster Sauce",
+        "price": 16.95
+      },
+      {
+        "id": 60,
+        "name": "Eggplant w/ Garlic Sauce",
+        "price": 12.95
+      },
+      {
+        "id": 61,
+        "name": "Salt and Pepper String Bean",
+        "price": 13.95
+      },
+      {
+        "id": 62,
+        "name": "Jai (Chinese Vegetarian Dish) *Seasonal*",
+        "price": 14.95
+      }
+    ],
+    "Sizzling Platters": [
+      {
+        "id": 63,
+        "name": "Sizzling Tenderloin Steak w/ Black Pepper",
+        "price": 29.95
+      },
+      {
+        "id": 64,
+        "name": "Sizzling Lamb w/ Black Pepper",
+        "price": 29.95
+      }
+    ],
+    "Seafood": [
+      {
+        "id": 65,
+        "name": "Live Lobster",
+        "price": "Seasonal"
+      },
+      {
+        "id": 66,
+        "name": "Live Crab",
+        "price": "Seasonal"
+      },
+      {
+        "id": 67,
+        "name": "Steamed Fresh Island Fish",
+        "price": "Seasonal"
+      },
+      {
+        "id": 68,
+        "name": "Deep Fried Butterfish w/ Gravy",
+        "price": 22.95
+      },
+      {
+        "id": 69,
+        "name": "Sauteed Fish Fillet w/ Vegetable",
+        "price": 16.95
+      },
+      {
+        "id": 70,
+        "name": "Sauteed Fish Fillet w/ Black Bean Sauce",
+        "price": 16.95
+      },
+      {
+        "id": 71,
+        "name": "Sweet & Sour Fish Fillet",
+        "price": 15.95
+      },
+      {
+        "id": 72,
+        "name": "Steamed Basa Fish w/ (Black Bean/Shoyu) Sauce",
+        "price": 14.95
+      },
+      {
+        "id": 73,
+        "name": "Deep Fried Basa in Oyster Sauce",
+        "price": 15.95
+      },
+      {
+        "id": 74,
+        "name": "Salt & Pepper Fish",
+        "price": 15.95
+      },
+      {
+        "id": 75,
+        "name": "Scallop w/ Black Bean Sauce",
+        "price": 24.95
+      },
+      {
+        "id": 76,
+        "name": "Sauteed Scallop in Wine Sauce",
+        "price": 24.95
+      },
+      {
+        "id": 77,
+        "name": "Honey Shrimp w/ Walnuts",
+        "price": 14.95
+      },
+      {
+        "id": 78,
+        "name": "Sauteed Shrimp w/ Vegetable",
+        "price": 16.95
+      },
+      {
+        "id": 79,
+        "name": "Shrimp w/ Cashew Nut",
+        "price": 16.95
+      },
+      {
+        "id": 80,
+        "name": "Sauteed Shrimp w/ Broccoli",
+        "price": 16.95
+      },
+      {
+        "id": 81,
+        "name": "Salt & Pepper Shrimp",
+        "price": 14.95
+      },
+      {
+        "id": 82,
+        "name": "Salt & Pepper Squid",
+        "price": 19.95
+      },
+      {
+        "id": 83,
+        "name": "Seafood Combo (Shrimp, Squid, Fish)",
+        "price": 20.95
+      }
+    ],
+    "Egg": [
+      {
+        "id": 84,
+        "name": "House Specialty Egg Fu Yong (Chicken, Char Siu, Shrimp)",
+        "price": 16.95
+      },
+      {
+        "id": 85,
+        "name": "Shrimp Egg Fu Yong",
+        "price": 16.95
+      },
+      {
+        "id": 86,
+        "name": "Char Siu Egg Fu Yong",
+        "price": 15.95
+      },
+      {
+        "id": 87,
+        "name": "Chicken Egg Fu Yong",
+        "price": 14.95
+      },
+      {
+        "id": 88,
+        "name": "Vegetable Egg Fu Yong",
+        "price": 13.95
+      },
+      {
+        "id": 89,
+        "name": "Shrimp w/ Eggs",
+        "price": 15.95
+      }
+    ],
+    "Noodles": [
+      {
+        "id": 90,
+        "name": "House Specialty (Chow Mein / Cake Noodles)",
+        "price": 16.95
+      },
+      {
+        "id": 91,
+        "name": "Shrimp (Chow Mein / Cake Noodles)",
+        "price": 16.95
+      },
+      {
+        "id": 92,
+        "name": "Seafood (Chow Mein / Cake Noodles)",
+        "price": 22.95
+      },
+      {
+        "id": 93,
+        "name": "(Beef / Pork / Chicken) (Chow Mein / Cake Noodles)",
+        "price": 16.95
+      },
+      {
+        "id": 94,
+        "name": "Sam See (Chow Mein / Cake Noodles)",
+        "price": 16.95
+      },
+      {
+        "id": 95,
+        "name": "Vegetable (Chow Mein / Cake Noodles)",
+        "price": 14.95
+      },
+      {
+        "id": 96,
+        "name": "Crispy Gau Gee (Chow Mein / Cake Noodles)",
+        "price": 18.95
+      },
+      {
+        "id": 97,
+        "name": "Beef Vegetable Chow Fun w/ Gravy",
+        "price": 16.95
+      },
+      {
+        "id": 98,
+        "name": "Beef Chow Fun (DRY)",
+        "price": 16.95
+      },
+      {
+        "id": 99,
+        "name": "Beef Chow Fun in Black Bean Sauce",
+        "price": 16.95
+      },
+      {
+        "id": 100,
+        "name": "Singapore Fried Rice Noodle (Curry Style)",
+        "price": 16.95
+      },
+      {
+        "id": 101,
+        "name": "Gon Lo (Chow Mein / Cake Noodle)",
+        "price": 14.95
+      },
+      {
+        "id": 102,
+        "name": "Beef Broccoli (Chow Mein / Cake Noodles)",
+        "price": 16.95
+      },
+      {
+        "id": 103,
+        "name": "Hong Kong Noodle",
+        "price": 13.95
+      }
+    ],
+    "Noodle Soup": [
+      {
+        "id": 104,
+        "name": "House Specialty Won Mein",
+        "price": 14.95
+      },
+      {
+        "id": 105,
+        "name": "Seafood Mein",
+        "price": 18.95
+      },
+      {
+        "id": 106,
+        "name": "Shrimp Mein",
+        "price": 15.95
+      },
+      {
+        "id": 107,
+        "name": "Wor Won Ton Mein",
+        "price": 14.95
+      },
+      {
+        "id": 108,
+        "name": "(Won Ton / Gau Gee) Mein",
+        "price": 11.95
+      },
+      {
+        "id": 109,
+        "name": "Wor Won Ton Soup",
+        "price": 14.95
+      },
+      {
+        "id": 110,
+        "name": "Won Ton Soup",
+        "price": 11.95
+      },
+      {
+        "id": 111,
+        "name": "Spicy Beef Mein",
+        "price": 14.95
+      },
+      {
+        "id": 112,
+        "name": "Saimein",
+        "price": 8.95
+      }
+    ],
+    "Fried Rice": [
+      {
+        "id": 113,
+        "name": "House Specialty Fried Rice",
+        "price": 14.95
+      },
+      {
+        "id": 114,
+        "name": "Seafood Fried Rice",
+        "price": 16.95
+      },
+      {
+        "id": 115,
+        "name": "Shrimp Fried Rice",
+        "price": 14.95
+      },
+      {
+        "id": 116,
+        "name": "Fook Kin Fried Rice",
+        "price": 18.95
+      },
+      {
+        "id": 117,
+        "name": "Salted Fish & Chicken Fried Rice",
+        "price": 17.95
+      },
+      {
+        "id": 118,
+        "name": "Beef Fried Rice",
+        "price": 13.95
+      },
+      {
+        "id": 119,
+        "name": "Char Siu Fried Rice",
+        "price": 13.95
+      },
+      {
+        "id": 120,
+        "name": "Chicken Fried Rice",
+        "price": 12.95
+      },
+      {
+        "id": 121,
+        "name": "Vegetable Fried Rice",
+        "price": 12.95
+      },
+      {
+        "id": 122,
+        "name": "Indi Fried Rice",
+        "price": 14.95
+      }
+    ],
+    "Hot Pot Specials": [
+      {
+        "id": 123,
+        "name": "Salted Fish, Chicken, Tofu Hot Pot",
+        "price": 22.95
+      },
+      {
+        "id": 124,
+        "name": "Braised Seafood Tofu Vegetable",
+        "price": 25.95
+      },
+      {
+        "id": 125,
+        "name": "Eggplant w/ Minced Pork",
+        "price": 16.95
+      },
+      {
+        "id": 126,
+        "name": "Seafood Over Long Rice Noodle",
+        "price": 25.95
+      }
+    ],
+    "Rice Plates": [
+      {
+        "id": 127,
+        "name": "Seafood Combo",
+        "price": 22.95
+      },
+      {
+        "id": 128,
+        "name": "Chicken w/ Mushroom",
+        "price": 15.95
+      },
+      {
+        "id": 129,
+        "name": "Shrimp w/ Vegetable",
+        "price": 17.95
+      },
+      {
+        "id": 130,
+        "name": "Tofu Vegetable",
+        "price": 15.95
+      },
+      {
+        "id": 131,
+        "name": "Szechuan Eggplant",
+        "price": 15.95
+      },
+      {
+        "id": 132,
+        "name": "Mongolian Beef",
+        "price": 19.95
+      },
+      {
+        "id": 133,
+        "name": "String Bean w/ Chicken",
+        "price": 16.95
+      },
+      {
+        "id": 134,
+        "name": "Lemon Chicken",
+        "price": 15.95
+      }
+    ]
+  }
+}
