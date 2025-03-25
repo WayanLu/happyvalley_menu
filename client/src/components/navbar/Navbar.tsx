@@ -11,7 +11,7 @@ interface CreateNavbarProps {
 
 const CreateNavbar: React.FC<CreateNavbarProps> = ({ brandName, items }) => {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar className="fixed-top" bg="dark" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand href="/">{brandName}</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
