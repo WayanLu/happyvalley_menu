@@ -11,6 +11,10 @@ const navItems = [
     name: "About",
     link: "/about",
   },
+  {
+    name: "Admin",
+    link: "/admin",
+  },
 ];
 
 export default function RootLayout({

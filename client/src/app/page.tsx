@@ -25,8 +25,6 @@ const CreateMenu: React.FC = () => {
   };
   return (
     <div className="flex flex-col sm:flex-row h-screen overflow-hidden pt-[56px]">
-      {/* Add pt-[56px] to create space for the navbar */}
-
       {/* Categories - Fixed at top on mobile (below navbar), left side on larger screens */}
       <div className="w-full sm:w-1/3 md:w-1/4 lg:w-1/5 border-b sm:border-b-0 sm:border-r border-gray-200 h-16 sm:h-[calc(100vh-56px)] sticky top-[56px] z-10 sm:static overflow-x-auto sm:overflow-y-auto bg-white flex sm:block">
         <div className="flex sm:flex-col py-1 sm:py-4 w-full">
@@ -46,7 +44,6 @@ const CreateMenu: React.FC = () => {
 
       {/* Menu Items - Scrollable area with padding at top on mobile */}
       <div className="w-full sm:w-2/3 md:w-3/4 lg:w-4/5 flex-1 overflow-y-auto pt-16 sm:pt-0">
-        {/* Added pt-16 to push content below the category bar on mobile */}
         <div className="py-3 sm:py-4 px-4 sm:px-6">
           {Object.entries(typedMenuData.menu).map(([category, items]) => (
             <div
