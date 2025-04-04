@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
 import menuData from "./data.json";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 interface MenuItem {
   id: number;
@@ -27,11 +27,11 @@ const CreateMenu: React.FC = () => {
 
   // Function to measure heights accurately
   const updateMeasurements = () => {
-    // Measure navbar height
-    const navbar = document.querySelector(".navbar") as HTMLElement;
-    if (navbar) {
-      const height = navbar.getBoundingClientRect().height;
-      setNavbarHeight(height);
+    // Get navbar height from data attribute on main element
+    const main = document.querySelector("main");
+    if (main) {
+      const height = main.getAttribute("data-navbar-height");
+      setNavbarHeight(height ? parseInt(height, 10) : 56);
     }
 
     // Measure category tab height
@@ -45,6 +45,60 @@ const CreateMenu: React.FC = () => {
     setIsMobile(mobile);
   };
 
+  // Simplified scroll function without focus feature
+  const scrollToCategory = (category: string) => {
+    const element = document.getElementById(category);
+    const menuContainer = menuContainerRef.current;
+
+    if (element && menuContainer) {
+      // Just set active category
+      setActiveCategory(category);
+
+      if (isMobile) {
+        // Get the element position
+        const elementPosition = element.offsetTop;
+
+        // Calculate target scroll position with a safety check for negative values
+        const targetScrollPosition = Math.max(
+          0,
+          elementPosition - (navbarHeight + categoryTabHeight),
+        );
+
+        // Scroll to position the element just below the headers
+        menuContainer.scrollTo({
+          top: targetScrollPosition,
+          behavior: "smooth",
+        });
+      } else {
+        // For desktop view - simple scroll into view with margin
+        const scrollMargin = navbarHeight + 10; // Adding a small extra margin for better visibility
+        menuContainer.scrollTo({
+          top: element.offsetTop - scrollMargin,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
+
+  // Update menu position based on category sidebar width
+  useEffect(() => {
+    const updateMenuPosition = () => {
+      if (!isMobile && categoryTabRef.current && menuContainerRef.current) {
+        const sidebarWidth = categoryTabRef.current.offsetWidth;
+        if (menuContainerRef.current) {
+          menuContainerRef.current.style.left = `${sidebarWidth}px`;
+        }
+      }
+    };
+
+    updateMenuPosition();
+    window.addEventListener("resize", updateMenuPosition);
+
+    return () => {
+      window.removeEventListener("resize", updateMenuPosition);
+    };
+  }, [isMobile]);
+
   useEffect(() => {
     // Initial measurement with a slight delay to ensure DOM is fully rendered
     setTimeout(updateMeasurements, 100);
@@ -53,88 +107,37 @@ const CreateMenu: React.FC = () => {
     window.addEventListener("resize", updateMeasurements);
 
     // Create MutationObserver for navbar changes
-    const navbarObserver = new MutationObserver(updateMeasurements);
-    const navbar = document.querySelector(".navbar");
-    if (navbar) {
-      navbarObserver.observe(navbar, {
+    const mainObserver = new MutationObserver(updateMeasurements);
+    const main = document.querySelector("main");
+    if (main) {
+      mainObserver.observe(main, {
         attributes: true,
-        childList: true,
-        subtree: true,
+        childList: false,
+        subtree: false,
       });
     }
 
+    // Prevent body scrolling on desktop
+    const preventBodyScroll = () => {
+      if (!isMobile) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+    };
+
+    preventBodyScroll();
+    window.addEventListener("resize", preventBodyScroll);
+
     return () => {
       window.removeEventListener("resize", updateMeasurements);
-      navbarObserver.disconnect();
+      window.removeEventListener("resize", preventBodyScroll);
+      document.body.style.overflow = ""; // Reset on component unmount
+      mainObserver.disconnect();
     };
-  }, []);
+  }, [isMobile]);
 
-  // Function to scroll the selected category to center in the category tab
-  const centerCategoryInView = (category: string) => {
-    const categoryElement = categoryRefs.current[category];
-    const tabContainer = categoryTabRef.current;
-
-    if (categoryElement && tabContainer) {
-      if (isMobile) {
-        // For mobile - center horizontally
-        const containerWidth = tabContainer.offsetWidth;
-        const elementWidth = categoryElement.offsetWidth;
-        const elementLeft = categoryElement.offsetLeft;
-
-        tabContainer.scrollTo({
-          left: elementLeft - containerWidth / 2 + elementWidth / 2,
-          behavior: "smooth",
-        });
-      } else {
-        // For desktop - center vertically
-        const containerHeight = tabContainer.offsetHeight;
-        const elementHeight = categoryElement.offsetHeight;
-        const elementTop = categoryElement.offsetTop;
-
-        tabContainer.scrollTo({
-          top: elementTop - containerHeight / 2 + elementHeight / 2,
-          behavior: "smooth",
-        });
-      }
-    }
-  };
-
-  const scrollToCategory = (category: string) => {
-    const element = document.getElementById(category);
-    const menuContainer = menuContainerRef.current;
-
-    if (element && menuContainer) {
-      // Set active category
-      setActiveCategory(category);
-
-      // Center the category in the tab view
-      centerCategoryInView(category);
-
-      if (isMobile) {
-        // Fixed approach: Use fixed height values if dynamic measurement fails
-        // This gives a more reliable fallback
-        const fixedNavbarHeight = navbarHeight > 0 ? navbarHeight : 56;
-        const fixedCategoryHeight =
-          categoryTabHeight > 0 ? categoryTabHeight : 64;
-        const totalOffset = fixedNavbarHeight + fixedCategoryHeight;
-
-        // Get the element position
-        const elementPosition = element.offsetTop;
-
-        // Scroll to position the element just below the headers
-        menuContainer.scrollTo({
-          top: elementPosition - totalOffset,
-          behavior: "smooth",
-        });
-      } else {
-        // For desktop view
-        element.style.scrollMarginTop = `${navbarHeight}px`;
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  };
-
-  // Track scroll position to update the active category
+  // Simplified scroll tracking without focus feature
   useEffect(() => {
     const handleScroll = () => {
       if (!menuContainerRef.current) return;
@@ -153,12 +156,9 @@ const CreateMenu: React.FC = () => {
           // Get current scroll position
           const scrollTop = menuContainerRef.current!.scrollTop;
           const containerHeight = menuContainerRef.current!.clientHeight;
-          const fixedNavbarHeight = navbarHeight > 0 ? navbarHeight : 56;
-          const fixedCategoryHeight =
-            categoryTabHeight > 0 ? categoryTabHeight : 64;
           const offset = isMobile
-            ? fixedNavbarHeight + fixedCategoryHeight
-            : fixedNavbarHeight;
+            ? navbarHeight + categoryTabHeight
+            : navbarHeight;
 
           // Find which category is most visible
           let mostVisibleCategory = null;
@@ -185,10 +185,9 @@ const CreateMenu: React.FC = () => {
             }
           }
 
-          // Update active category if it changed
+          // Update active category if it changed - without centering
           if (mostVisibleCategory && mostVisibleCategory !== activeCategory) {
             setActiveCategory(mostVisibleCategory);
-            centerCategoryInView(mostVisibleCategory);
           }
 
           handleScroll.ticking = false;
@@ -220,22 +219,27 @@ const CreateMenu: React.FC = () => {
   ]);
 
   return (
-    <div className="flex flex-col sm:flex-row h-screen overflow-hidden">
+    <div className="flex flex-col sm:flex-row h-screen">
       {/* Categories tab */}
       <div
         ref={categoryTabRef}
-        style={{ top: `${navbarHeight}px` }}
         className="w-full sm:w-1/3 md:w-1/4 lg:w-1/5 border-b sm:border-b-0 sm:border-r border-gray-200 
-        h-16 sm:h-screen 
-        fixed sm:static left-0 right-0 z-10
+        h-16 sm:h-auto
+        fixed sm:fixed left-0 right-0 z-10
         overflow-x-auto sm:overflow-y-auto bg-white
         flex sm:block"
+        style={{
+          top: `${navbarHeight}px`,
+          height: isMobile ? "64px" : `calc(100vh - ${navbarHeight}px)`,
+        }}
       >
         <div className="flex sm:flex-col py-1 sm:py-4 w-full">
           {Object.entries(typedMenuData.menu).map(([category, items]) => (
             <div
               key={category}
-              ref={(el) => (categoryRefs.current[category] = el)}
+              ref={(el) => {
+                categoryRefs.current[category] = el;
+              }}
               className={`whitespace-nowrap sm:whitespace-normal px-3 py-2 sm:py-2 sm:px-4 
               hover:bg-gray-100 cursor-pointer transition-colors duration-200 
               ${activeCategory === category ? "bg-gray-100 text-gray-900 font-medium" : ""}`}
@@ -254,11 +258,16 @@ const CreateMenu: React.FC = () => {
       {/* Menu Items */}
       <div
         ref={menuContainerRef}
-        className="w-full sm:w-2/3 md:w-3/4 lg:w-4/5 flex-1 overflow-y-auto"
+        className="w-full sm:w-2/3 md:w-3/4 lg:w-4/5 overflow-y-auto"
         style={{
-          paddingTop: isMobile
-            ? `calc(${navbarHeight || 56}px + ${categoryTabHeight || 64}px)`
-            : `${navbarHeight || 56}px`,
+          position: "fixed",
+          top: isMobile
+            ? `${navbarHeight + categoryTabHeight}px`
+            : `${navbarHeight}px`,
+          bottom: "0",
+          right: "0",
+          left: isMobile ? "0" : "auto", // Will be set dynamically by the effect
+          paddingBottom: "20px",
         }}
       >
         <div className="py-3 sm:py-4 px-4 sm:px-6">
@@ -269,8 +278,8 @@ const CreateMenu: React.FC = () => {
               className="mb-6 sm:mb-8"
               style={{
                 scrollMarginTop: isMobile
-                  ? `${(navbarHeight || 56) + (categoryTabHeight || 64)}px`
-                  : `${navbarHeight || 56}px`,
+                  ? `${navbarHeight + categoryTabHeight}px`
+                  : `${navbarHeight}px`,
               }}
             >
               <h1 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">

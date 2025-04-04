@@ -1,25 +1,23 @@
 "use client";
 import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-import { useState, useEffect } from "react";
 import CreateNavbar from "@/components/navbar/Navbar";
+import { useState, useEffect } from "react";
 
-// Assuming you have navItems defined somewhere
 const navItems = [
   { name: "About", link: "/about" },
   { name: "Admin", link: "/admin" },
-]; // Adjust according to your actual navigation items
+];
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [navbarHeight, setNavbarHeight] = useState(56);
+  // We'll still need to measure the navbar for components like CreateMenu
+  const [navbarHeight, setNavbarHeight] = useState(0);
 
   useEffect(() => {
-    // Function to update navbar height
     const updateNavbarHeight = () => {
       const navbar = document.querySelector(".navbar") as HTMLElement;
       if (navbar) {
@@ -30,10 +28,8 @@ export default function RootLayout({
     // Initial measurement
     updateNavbarHeight();
 
-    // Update on resize and when DOM changes (navbar toggle)
+    // Update on resize and DOM changes
     window.addEventListener("resize", updateNavbarHeight);
-
-    // Create a MutationObserver to detect navbar height changes
     const observer = new MutationObserver(updateNavbarHeight);
     const navbar = document.querySelector(".navbar");
     if (navbar) {
@@ -44,7 +40,6 @@ export default function RootLayout({
       });
     }
 
-    // Cleanup
     return () => {
       window.removeEventListener("resize", updateNavbarHeight);
       observer.disconnect();
@@ -53,12 +48,21 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body>
-        <CreateNavbar
-          brandName="Happy Valley Seafood Restaurant"
-          items={navItems}
-        />
-        <div style={{ paddingTop: `${navbarHeight}px` }}>{children}</div>
+      <body className="flex flex-col min-h-screen">
+        <header className="fixed top-0 w-full z-50">
+          <CreateNavbar
+            brandName="Happy Valley Seafood Restaurant"
+            items={navItems}
+          />
+        </header>
+        {/* Make navbarHeight available to children via data attribute */}
+        <main
+          className="flex-grow"
+          data-navbar-height={navbarHeight}
+          style={{ marginTop: `${navbarHeight}px` }}
+        >
+          {children}
+        </main>
       </body>
     </html>
   );
